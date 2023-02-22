@@ -1,7 +1,12 @@
 ---
 - name: ping
   gather_facts: no
+  become: true
   hosts: all
   tasks:
   - name: ping
     ping:
+  - name: install mc
+    package:
+      name: mc
+      state: latest
