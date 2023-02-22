@@ -10,3 +10,19 @@
     package:
       name: mc
       state: latest
+
+- name: install package
+  gather_facts: no
+  become: true
+  hosts: ub001
+  tasks:
+  - name:
+    package:
+      name: apache2
+      state: latest
+  - name: start service
+    service:
+      name: apache2
+      state: started
+      enabled: yes    
+
